@@ -6,7 +6,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# app static files inside /app/build
+# App static files inside /app/build
 
 FROM nginx
 # Copy the result from the builder stage
