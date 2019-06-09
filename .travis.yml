@@ -1,0 +1,10 @@
+sudo: required # we need super user permissions anytime we make use of Docker
+
+services:
+  - docker # 1. Tell Travis we need a copy of docker running
+
+before_install:
+  - docker build -t erant10/docker-react -f Dockerfile.dev . # 2. Build our image using Dockerfile.dev
+
+script:
+  - docker run erant10/docker-react npm run test -- --coverage # 3. Tell Travis how to run our test suite
